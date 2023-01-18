@@ -8,10 +8,18 @@ public class HelloSpringApp {
 		
 		//load the spring configuration file
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		
 		//retrieve bean form spring container
 		Coach theCoach = context.getBean("myCoach", Coach.class);
+		
 		//call methods on the bean
 		System.out.println(theCoach.getDailyWorkout());
+	
+	
+		//let us call our new method off fortune
+		System.out.println(theCoach.getDailyFortune());
+		
+		
 		//close the context
 		context.close();
 

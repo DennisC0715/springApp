@@ -9,7 +9,11 @@
 
     <!-- Define your beans here -->
     
-    <bean id="myCoach" class="com.dennis.springDemo.BasketBallCoach"></bean>
+    <bean id="myFortune" class="com.dennis.springDemo.HappyFortuneService"></bean>
+    
+    <bean id="myCoach1" class="com.dennis.springDemo.BasketBallCoach" ><constructor-arg ref="myFortune" /></bean>
+    
+    <bean id="myCoach" class="com.dennis.springDemo.TrackCoach" ><constructor-arg ref="myFortune" /></bean>
     
     
     
