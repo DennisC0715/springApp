@@ -6,15 +6,23 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- load the properties file: sport.properties -->
+    <context:property-placeholder location="classpath:sport.properties"/>
 
     <!-- Define your beans here -->
     
-    <bean id="myFortune" class="com.dennis.springDemo.HappyFortuneService"></bean>
+    <bean id="myFortuneService" class="com.dennis.springDemo.RandomFortuneService"></bean>
     
-    <bean id="myCoach1" class="com.dennis.springDemo.BasketBallCoach" ><constructor-arg ref="myFortune" /></bean>
+    <bean id="myBasketBall" class="com.dennis.springDemo.BasketBallCoach" ><constructor-arg ref="myFortuneService" /></bean>
     
-    <bean id="myCoach" class="com.dennis.springDemo.TrackCoach" ><constructor-arg ref="myFortune" /></bean>
+    <bean id="myCoach" class="com.dennis.springDemo.TrackCoach" ><constructor-arg ref="myFortuneService" /></bean>
     
+    <bean id="myCricketCoach" class="com.dennis.springDemo.CricketCoach">
+    <property name="fortuneService" ref="myFortuneService"></property>
+    <property name="emailAddress" value="${foo.email}"></property>
+    <property name="team" value="${foo.team}"></property>
+    </bean>
     
     
 </beans>

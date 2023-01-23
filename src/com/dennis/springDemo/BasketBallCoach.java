@@ -16,6 +16,6 @@ public class BasketBallCoach implements Coach{
 
 	@Override
 	public String getDailyFortune() {
-		return "just do it" + fortuneService.getFortune();
+		return "just do it " + fortuneService.getFortune();
 	} 
 }
